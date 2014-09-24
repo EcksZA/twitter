@@ -9,7 +9,7 @@
 <body>
 
 <% if current_user %>
-  <p>Logged in as @<%= current_user.handle %></p>
+  <p>Logged in as <%= current_user.handle %></p>
   <p><%= link_to 'Log Out', logout_path %></p>
 <% else %>
   <%= link_to 'Sign Up', signup_path %> or

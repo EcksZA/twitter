@@ -5,4 +5,8 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail to: user.email, subject: 'Is this working?'
   end
+
+  def called_notification(user)
+    mail to: user.email, subject: "Notification"
+  end
 end

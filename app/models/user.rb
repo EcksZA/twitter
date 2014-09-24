@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   after_create :send_welcome_message
+  before_create :add_handle
 
   has_secure_password
   validates :first_name, presence: true
@@ -11,5 +12,9 @@ class User < ActiveRecord::Base
 
   def send_welcome_message
     UserMailer.signup_confirmation(self).deliver
+  end
+
+  def add_handle
+    self.handle = '@' + self.handle
   end
 end

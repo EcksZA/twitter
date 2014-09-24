@@ -1,5 +1,12 @@
 <h1>Post</h1>
 
 <%= @post do |post| %>
-  <%= render 'posting' %>
+  <%= post.first_name %>
+  <%= post.last_name %>
+  <%= post.time_ago_in_words(post.created_at) %>
+  <%= post.post %>
+  <%= link_to 'delete', user_post(post), data: { confirm: 'Are you sure you want to delete this tweet',
+                                                method: 'delete'
+                                              }
+  %>
 <% end %>
