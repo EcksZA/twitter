@@ -1,0 +1,6 @@
+<% content_for :title, 'New Tweet | twitter' %>
+<h1>All Posts</h1>
+
+<%= @posts.each do |post| %>
+  <%= render 'posting' %>
+<% end %>

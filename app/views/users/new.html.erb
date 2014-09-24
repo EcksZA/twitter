@@ -1,0 +1,9 @@
+<% content_for(:title, 'New Account | twitter') %>
+
+<h1>Create A User Account</h1>
+
+<p><b>Welcome to twitter!</b> Please input your information to create an account.</p>
+
+<%= render 'layouts/errors', object: @user %>
+
+<%= render 'form' %>
