@@ -1,7 +1,10 @@
 <% content_for :title, 'twitter' %>
-<h1>All Posts</h1>
 
-<% @posts.each do |post| %>
+<div id='page-top'>
+  <img src="/assets/logo.jpg" alt="logo">
+</div>
+
+<% @posts.sort_by(&:created_at).reverse.each do |post| %>
   <div>
   <%= link_to (post.user.first_name + " " + post.user.last_name), user_path(post.user) %>
   </div>

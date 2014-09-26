@@ -1,4 +1,4 @@
 <%= form_for [@user, @post] do |f| %>
   <%= f.text_area :post, size: '30x5' %>
-  <%= f.submit 'tweet!' %>
+  <%= f.submit 'tweet!', id: 'new-tweet', remote: true %>
 <% end %>

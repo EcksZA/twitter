@@ -13,6 +13,10 @@ class PostsController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @post = @user.posts.new
+    respond_to do |format|
+      format.html { redirect_to user_path(@user) }
+      format.js
+    end
   end
 
   def create
@@ -20,7 +24,10 @@ class PostsController < ApplicationController
     @post = @user.posts.new(post_params)
     if @post.save
       flash[:notice] = 'Tweet sent!'
-      redirect_to posts_path
+      respond_to do |format|
+        format.html { redirect_to user_path(@user) }
+        format.js
+      end
     else
       render 'new'
     end
